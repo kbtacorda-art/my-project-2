@@ -35,7 +35,6 @@ export default function Login() {
         transition={{ duration: 0.7 }}
         className="relative bg-black/70 backdrop-blur-xl p-10 rounded-3xl w-96 shadow-[0_0_25px_rgba(255,215,0,0.7)] border border-yellow-500/40"
       >
-        {/* Glow Outline */}
         <div className="absolute inset-0 rounded-3xl border-2 border-yellow-300 opacity-20 blur-md pointer-events-none"></div>
 
         <h1 className="text-3xl text-yellow-300 font-extrabold mb-6 text-center tracking-widest drop-shadow-lg">
@@ -43,11 +42,23 @@ export default function Login() {
         </h1>
 
         <form className="flex flex-col gap-4">
+          {/* Email */}
           <input
             type="email"
             placeholder="Email"
             className="p-3 rounded-md bg-black/60 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-inner"
           />
+
+          {/* Age (NO ARROWS) */}
+          <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            placeholder="Age"
+            className="p-3 rounded-md bg-black/60 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-inner"
+          />
+
+          {/* Password */}
           <input
             type="password"
             placeholder="Password"
@@ -72,7 +83,6 @@ export default function Login() {
           </Link>
         </p>
 
-        {/* Back to Home */}
         <div className="mt-6 text-center">
           <Link
             href="/"

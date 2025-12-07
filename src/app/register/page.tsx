@@ -48,11 +48,22 @@ export default function Register() {
             placeholder="Full Name"
             className="p-3 rounded-md bg-black/40 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
+
           <input
             type="email"
             placeholder="Email"
             className="p-3 rounded-md bg-black/40 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
+
+          {/* AGE — numeric-only, no up/down arrows */}
+          <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            placeholder="Age"
+            className="p-3 rounded-md bg-black/40 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+
           <input
             type="password"
             placeholder="Password"
