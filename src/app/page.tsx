@@ -5,18 +5,40 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center bg-hpBrown"
-      style={{ backgroundImage: "url('/wizard.jpg')" }}
-    >
+    <div className="min-h-screen flex flex-col items-center justify-between bg-[#0b1220] bg-cover bg-center bg-hpBrown relative overflow-hidden">
+      {/* Magical Floating Orbs */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4, y: [0, -20, 0] }}
+        transition={{ repeat: Infinity, duration: 6 }}
+        className="absolute top-10 left-10 w-40 h-40 bg-hpGold/20 rounded-full blur-3xl"
+      ></motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4, y: [0, 20, 0] }}
+        transition={{ repeat: Infinity, duration: 7 }}
+        className="absolute bottom-20 right-20 w-52 h-52 bg-hpRed/20 rounded-full blur-3xl"
+      ></motion.div>
+
       {/* Header */}
-      <header className="w-full py-6 text-center bg-hpRed bg-opacity-70 shadow-md">
-        <h1 className="text-4xl font-extrabold text-hpCream tracking-wide drop-shadow-lg">
+      <header className="w-full py-10 text-center bg-hpRed/70 shadow-lg backdrop-blur-md border-b-2 border-hpGold">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl font-extrabold text-white tracking-wide drop-shadow-xl"
+        >
           Welcome to the Hogwarts Library
-        </h1>
-        <p className="mt-2 text-lg text-hpGold drop-shadow-md">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="mt-3 text-xl text-white/90 drop-shadow"
+        >
           Your magical adventure begins here
-        </p>
+        </motion.p>
       </header>
 
       {/* Buttons */}
@@ -24,41 +46,42 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="mt-16 flex flex-col md:flex-row gap-6"
+        className="mt-20 flex flex-col md:flex-row gap-8"
       >
         <Link href="/dashboard">
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            className="bg-hpGray bg-opacity-70 border-2 border-hpGold text-hpGold font-bold py-3 px-8 rounded-md shadow-md hover:bg-opacity-90 transition"
+            whileHover={{ scale: 1.12 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-hpGray/60 border-2 border-hpGold text-white font-bold py-4 px-10 rounded-xl shadow-xl hover:bg-hpGray/80 backdrop-blur-md transition text-lg tracking-wide"
           >
-            Dashboard
+            🪄 Dashboard
           </motion.button>
         </Link>
 
         <Link href="/login">
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            className="bg-hpGray bg-opacity-70 border-2 border-hpGold text-hpGold font-bold py-3 px-8 rounded-md shadow-md hover:bg-opacity-90 transition"
+            whileHover={{ scale: 1.12 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-hpGray/60 border-2 border-hpGold text-white font-bold py-4 px-10 rounded-xl shadow-xl hover:bg-hpGray/80 backdrop-blur-md transition text-lg tracking-wide"
           >
-            Login
+            🔐 Login
           </motion.button>
         </Link>
 
         <Link href="/register">
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            className="bg-hpGray bg-opacity-70 border-2 border-hpGold text-hpGold font-bold py-3 px-8 rounded-md shadow-md hover:bg-opacity-90 transition"
+            whileHover={{ scale: 1.12 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-hpGray/60 border-2 border-hpGold text-white font-bold py-4 px-10 rounded-xl shadow-xl hover:bg-hpGray/80 backdrop-blur-md transition text-lg tracking-wide"
           >
-            Register
+            📜 Register
           </motion.button>
         </Link>
       </motion.div>
 
       {/* Footer */}
-      <footer className="mt-32 py-6 w-full text-center bg-hpGray bg-opacity-60 border-t border-hpGold">
-        <p className="text-hpCream">
-          © 2025 Hogwarts Library. All magic reserved.
-        </p>
+      <footer className="mt-24 py-6 w-full text-center bg-hpGray/60 border-t-2 border-hpGold backdrop-blur-md shadow-inner">
+        <p className="text-white/90 tracking-wide text-sm">© 2025 Hogwarts Library. All magic reserved.</p>
       </footer>
     </div>
   );

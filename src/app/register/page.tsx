@@ -6,47 +6,72 @@ import Link from "next/link";
 export default function Register() {
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      className="min-h-screen flex items-center justify-center bg-cover bg-center relative overflow-hidden"
       style={{ backgroundImage: "url('/hogwarts-bg.jpg')" }}
     >
+      {/* Floating Lights (Magic Particles) */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="w-2 h-2 bg-yellow-300 rounded-full absolute opacity-60"
+            initial={{ x: Math.random() * 1400, y: Math.random() * 900 }}
+            animate={{
+              y: -50,
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 4,
+              repeat: Infinity,
+              repeatDelay: Math.random() * 3,
+            }}
+          />
+        ))}
+      </div>
+
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gray bg-opacity-70 p-10 rounded-3xl w-96 shadow-lg border-2 border-gold"
+        className="relative bg-black/60 backdrop-blur-xl p-10 rounded-3xl w-96 shadow-2xl border border-yellow-500/40"
       >
-        <h1 className="text-3xl text-gold font-bold mb-6 text-center tracking-wide">
-          Join the Hogwarts!
+        {/* Glow Border */}
+        <div className="absolute inset-0 rounded-3xl border-2 border-yellow-300 opacity-20 blur-md pointer-events-none"></div>
+
+        <h1 className="text-3xl text-yellow-300 font-extrabold mb-6 text-center tracking-widest drop-shadow-lg">
+          Join the Wizarding World
         </h1>
 
         <form className="flex flex-col gap-4">
           <input
             type="text"
             placeholder="Full Name"
-            className="p-3 rounded-md bg-black bg-opacity-50 border border-gold placeholder-gold text-white focus:outline-none focus:ring-2 focus:ring-gold"
+            className="p-3 rounded-md bg-black/40 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
           <input
             type="email"
             placeholder="Email"
-            className="p-3 rounded-md bg-black bg-opacity-50 border border-gold placeholder-gold text-white focus:outline-none focus:ring-2 focus:ring-gold"
+            className="p-3 rounded-md bg-black/40 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
           <input
             type="password"
             placeholder="Password"
-            className="p-3 rounded-md bg-black bg-opacity-50 border border-gold placeholder-gold text-white focus:outline-none focus:ring-2 focus:ring-gold"
+            className="p-3 rounded-md bg-black/40 border border-yellow-500 placeholder-yellow-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
 
-          <button
+          {/* Magic Button */}
+          <motion.button
             type="submit"
-            className="mt-4 bg-gold text-black font-bold py-3 rounded-md hover:bg-yellow-400 transition"
+            whileHover={{ scale: 1.05, boxShadow: "0 0 15px #FFD700" }}
+            className="mt-4 bg-yellow-400 text-black font-bold py-3 rounded-md shadow-md hover:bg-yellow-300 transition flex justify-center items-center gap-2"
           >
-            Register
-          </button>
+            ✨ Register
+          </motion.button>
         </form>
 
-        <p className="mt-4 text-center text-gold">
+        <p className="mt-5 text-center text-yellow-300">
           Already have an account?{" "}
-          <Link href="/login" className="underline hover:text-yellow-400">
+          <Link href="/login" className="underline hover:text-yellow-200">
             Login
           </Link>
         </p>
@@ -55,7 +80,7 @@ export default function Register() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="text-gold underline hover:text-yellow-400 text-sm tracking-wide"
+            className="text-yellow-300 underline hover:text-yellow-200 text-sm tracking-wide"
           >
             ← Back to Home
           </Link>

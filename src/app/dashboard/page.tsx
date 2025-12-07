@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const books = [
   { id: 1, title: "Harry Potter and the Sorcerer's Stone", year: 1997, pages: 223, progress: 80, cover: "/covers1.jpg", house: "Gryffindor" },
@@ -57,10 +58,9 @@ export default function HarryPotterDashboard() {
     <div className={`${palette.night} min-h-screen p-8 font-sans`}>
       <div className="max-w-7xl mx-auto grid grid-cols-12 gap-6">
 
-        {/* SIDEBAR WITH GRID FIXED */}
-        <aside
-          className={`col-span-3 rounded-2xl p-6 shadow-lg ${palette.parchment} grid grid-rows-[auto_auto_1fr_auto] gap-6`}
-        >
+        {/* SIDEBAR */}
+        <aside className={`col-span-3 rounded-2xl p-6 shadow-lg ${palette.parchment} grid grid-rows-[auto_auto_1fr_auto] gap-6`}>
+          
           {/* HEADER */}
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-300 to-orange-500 flex items-center justify-center text-2xl font-bold">
@@ -92,9 +92,18 @@ export default function HarryPotterDashboard() {
               <span>⭐</span>
               <span>Favorites</span>
             </button>
+
+            {/* BACK TO HOME */}
+            <Link
+              href="/"
+              className="w-full block px-4 py-2 rounded-lg hover:scale-[1.01] transition flex items-center gap-3"
+            >
+              <span>🏠</span>
+              <span>Home</span>
+            </Link>
           </nav>
 
-          {/* READING STATS */}
+          {/* STATS */}
           <div>
             <h3 className="text-sm font-semibold mb-2">Reading Stats</h3>
             <div className="text-sm opacity-90">
@@ -115,21 +124,31 @@ export default function HarryPotterDashboard() {
             </div>
           </div>
 
-          {/* EMPTY FOOTER (RESERVED FOR FUTURE) */}
           <div></div>
         </aside>
 
-        {/* MAIN CONTENT (unchanged) */}
+        {/* MAIN CONTENT */}
         <main className="col-span-9">
           <header className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-3xl font-extrabold">Books — Harry Potter Collection</h1>
               <p className="text-sm opacity-80">
-                A themed dashboard inspired by classic book covers and house colors.
+                A themed dashboard inspired by classic book aesthetics.
               </p>
             </div>
+
             <div className="flex items-center gap-3">
-              <button className={`px-4 py-2 rounded-lg font-semibold ${palette.gold}`}>Add Book</button>
+              {/* BACK TO HOME TOP BUTTON */}
+              <Link
+                href="/"
+                className="px-4 py-2 rounded-lg font-semibold bg-white/10 hover:bg-white/20 transition"
+              >
+                ← Home
+              </Link>
+
+              <button className={`px-4 py-2 rounded-lg font-semibold ${palette.gold}`}>
+                Add Book
+              </button>
               <div className="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center">🔍</div>
             </div>
           </header>
