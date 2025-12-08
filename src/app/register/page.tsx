@@ -47,13 +47,6 @@ export default function RegisterPage() {
               onChange={(e) => setUsername(e.target.value)} 
             />
 
-            {/* Age */}
-            <Input
-              placeholder="Age"
-              type="number"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-            />
 
             {/* Password */}
             <Input 
@@ -61,6 +54,14 @@ export default function RegisterPage() {
               placeholder="Password" 
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
+            />
+
+            {/* Age */}
+            <Input
+              placeholder="Age"
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
             />
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
