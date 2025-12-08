@@ -1,18 +1,17 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 
 import { API_BASE } from '@/lib/config';
 
-import { FormEvent } from 'react';
-
 export default function RegisterPage() {
   const router = useRouter();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [age, setAge] = useState('');
   const [error, setError] = useState('');
 
   async function handleRegister(e: FormEvent) {
@@ -22,7 +21,7 @@ export default function RegisterPage() {
     const res = await fetch(`${API_BASE}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, age }),
     });
 
     const data = await res.json();
@@ -40,13 +39,44 @@ export default function RegisterPage() {
         <CardContent>
           <h1 className="text-xl font-bold mb-4">Register</h1>
           <form onSubmit={handleRegister} className="space-y-4">
-            <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-            <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            
+            {/* Username */}
+            <Input 
+              placeholder="Username" 
+              value={username} 
+              onChange={(e) => setUsername(e.target.value)} 
+            />
+
+            {/* Age */}
+            <Input
+              placeholder="Age"
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+
+            {/* Password */}
+            <Input 
+              type="password" 
+              placeholder="Password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+            />
+
             {error && <p className="text-red-500 text-sm">{error}</p>}
-            <Button className="w-full" type="submit">Register</Button>
+
+            <Button className="w-full" type="submit">
+              Register
+            </Button>
           </form>
 
-          <Button variant="link" className="mt-2 w-full" onClick={() => router.push('/login')}>Back to Login</Button>
+          <Button 
+            variant="link" 
+            className="mt-2 w-full" 
+            onClick={() => router.push('/login')}
+          >
+            Back to Login
+          </Button>
         </CardContent>
       </Card>
     </div>

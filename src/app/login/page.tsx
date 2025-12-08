@@ -1,20 +1,18 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { saveToken } from '@/lib/auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { API_BASE } from '@/lib/config';
 
-
-import { FormEvent } from 'react';
-
 export default function LoginPage() {
 
   const router = useRouter();
   const [username, setUsername] = useState('');
+  const [age, setAge] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -25,7 +23,7 @@ export default function LoginPage() {
     const res = await fetch(`${API_BASE}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, age, password }),
     });
 
     const data = await res.json();
@@ -46,12 +44,23 @@ export default function LoginPage() {
           <h1 className="text-xl font-bold mb-4">Login</h1>
 
           <form onSubmit={handleLogin} className="space-y-4">
+
+            {/* Username */}
             <Input
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
 
+            {/* Age */}
+            <Input
+              type="number"
+              placeholder="Age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+
+            {/* Password */}
             <Input
               type="password"
               placeholder="Password"
