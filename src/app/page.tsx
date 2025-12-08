@@ -48,15 +48,7 @@ export default function Home() {
         transition={{ duration: 0.8 }}
         className="mt-20 flex flex-col md:flex-row gap-8"
       >
-        <Link href="/dashboard">
-          <motion.button
-            whileHover={{ scale: 1.12 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-hpGray/60 border-2 border-hpGold text-white font-bold py-4 px-10 rounded-xl shadow-xl hover:bg-hpGray/80 backdrop-blur-md transition text-lg tracking-wide"
-          >
-            🪄 Dashboard
-          </motion.button>
-        </Link>
+
 
         <Link href="/login">
           <motion.button
