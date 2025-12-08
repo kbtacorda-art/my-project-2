@@ -52,20 +52,21 @@ export default function LoginPage() {
               onChange={(e) => setUsername(e.target.value)}
             />
 
-            {/* Age */}
-            <Input
-              type="number"
-              placeholder="Age"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-            />
-
+          
             {/* Password */}
             <Input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+
+            {/* Age */}
+            <Input
+              type="number"
+              placeholder="Age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
             />
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
