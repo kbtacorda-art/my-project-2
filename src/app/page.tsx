@@ -49,7 +49,6 @@ export default function Home() {
         className="mt-20 flex flex-col md:flex-row gap-8"
       >
 
-
         <Link href="/login">
           <motion.button
             whileHover={{ scale: 1.12 }}

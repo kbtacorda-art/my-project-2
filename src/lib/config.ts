@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://my-project-2-a2bc.onrender.com";
