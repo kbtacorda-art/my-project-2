@@ -99,7 +99,7 @@ export default function HarryPotterDashboard() {
               className="w-full block px-4 py-2 rounded-lg hover:scale-[1.01] transition flex items-center gap-3"
             >
               <span>🏠</span>
-              <span>Home</span>
+              <span>Logout</span>
             </Link>
           </nav>
 
