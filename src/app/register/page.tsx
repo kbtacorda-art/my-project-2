@@ -61,7 +61,7 @@ export default function RegisterPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-300 to-orange-500 flex items-center justify-center text-4xl font-bold shadow-lg">
-            HP
+            new wiz
           </div>
           <h1 className="text-3xl font-extrabold mb-2">Join The Wizarding Library</h1>
           <p className="text-sm opacity-80">Create your account to start your magical reading journey</p>
